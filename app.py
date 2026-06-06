@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE = "Digital CV | Egezon Baruti"
+PAGE_TITLE = "Digital CV | "
 PAGE_ICON = ":wave:"
 NAME = "Egezon Baruti"
 DESCRIPTION = """
