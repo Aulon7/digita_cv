@@ -9,7 +9,6 @@ DESCRIPTION = """
 Data Scientist specializing in spatial-sensor data and data-driven decision-making.
 """
 
-EMAIL = "egzonbaruti@yahoo.com"
 LINKEDIN_URL = "https://www.linkedin.com/in/egezonbaruti"
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
