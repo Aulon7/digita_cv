@@ -6,7 +6,7 @@ PAGE_TITLE = "Digital CV | "
 PAGE_ICON = ":wave:"
 NAME = "Egezon Baruti"
 DESCRIPTION = """
-Data Scientist specializing in spatial-sensor data and data-driven decision-making.
+Data Scientist  in spatial-sensor data and data-driven decision-making.
 """
 
 LINKEDIN_URL = "https://www.linkedin.com/in/egezonbaruti"
