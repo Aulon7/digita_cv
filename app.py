@@ -6,7 +6,7 @@ PAGE_TITLE = "Digital CV | "
 PAGE_ICON = ":wave:"
 NAME = "Aulon Morina"
 DESCRIPTION = """
-Data Scientist  in spatial-sensor data and data-driven decision-making.
+Data Enthusiast.
 """
 
 LINKEDIN_URL = "https://www.linkedin.com/in/aulonmorina/"
