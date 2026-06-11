@@ -4,18 +4,19 @@ from PIL import Image
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Digital CV | "
 PAGE_ICON = ":wave:"
-NAME = "Egezon Baruti"
+NAME = "Aulon Morina"
 DESCRIPTION = """
 Data Scientist specializing in spatial-sensor data and data-driven decision-making.
 """
 
-LINKEDIN_URL = "https://www.linkedin.com/in/egezonbaruti"
+LINKEDIN_URL = "https://www.linkedin.com/in/aulonmorina/"
+EMAIL = "aulonmorina@gmail.com"
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # Directly reference files in the assets folder (ensure it exists)
-resume_file = "assets/egezon_cv_12_2024.pdf"
-profile_pic_file = "assets/profile-pic.png"
+resume_file = "assets/Aulon_Morina_CV_2026-02.pdf"
+profile_pic_file = "assets/aulon-profile-pic.png"
 
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
@@ -37,7 +38,7 @@ if page == "Home":
         st.download_button(
             label="📄 Download Resume",
             data=PDFbyte,
-            file_name="CV.pdf",
+            file_name="Aulon-Morina_CV.pdf",
             mime="application/octet-stream",
         )
 
@@ -46,10 +47,8 @@ if page == "Home":
     st.subheader("Experience & Qualifications")
     st.write(
         """
-- ✔️ Extensive experience with spatial-sensor data and algorithm development.
-- ✔️ Skilled in Python (FastAPI, Pandas, Numpy), SQL, DBT, and Airflow.
-- ✔️ Experienced in visualizing and analyzing sensor data to deliver insights.
-- ✔️ Proficient in PowerBI and interactive dashboard development.
+- ✔️ Experienced in software development, data field (analysis, visualization, engineering).
+- ✔️ Skilled in JavaScript (Typescript, React), Python (Pandas, Numpy), GraphQL, REST APIs, SQL.
 """
     )
 
@@ -58,10 +57,9 @@ if page == "Home":
     st.subheader("Hard Skills")
     st.write(
         """
-- 👩‍💻 Programming: Python (FastAPI, Scikit-learn, Pandas), SQL, DBT
+- 👩‍💻 Programming: Javascript, Python, SQL.
 - 📊 Data Visualization: PowerBI, Streamlit
-- 🗄️ Databases: Snowflake, AWS, PostgreSQL
-- 🤖 Machine Learning: Neural networks, classification algorithms
+- 🗄️ Databases: MySQL, GCP, AWS.
 """
     )
 
@@ -70,99 +68,39 @@ if page == "Home":
     st.subheader("Work History")
     st.write("---")
 
-    # --- JOB 1
-    st.write("🚧", "**Data Scientist | TIVE Inc., Prishtina**")
-    st.write("11/2023 - 11/2024")
+    st.write("🚧", "**Freelance | Prishtina**")
+    st.write("09/2023 - 12/2024")
     st.write(
         """
-- ► Built classification algorithms for spatial-sensor data using Python (FastAPI), SQL, DBT, and Airflow.
-- ► Analyzed and visualized sensor data trends to support decision-making.
+- ► Developed my skills further hence improving my data analysis and engineering skills.
+- ► Participated in some mini-projects and collaborated with other developers..
 """
     )
 
-    # --- JOB 2
     st.write("\n")
-    st.write("🚧", "**Data Scientist | Raiffeisen Bank Kosovo, Prishtina**")
-    st.write("10/2021 - 08/2023")
+    st.write("🚧", "**Software Developer | Pabau Clinic Software, Prishtina**")
+    st.write("07/2022 - 09/2023")
     st.write(
         """
-- ► Validated ML scorecards in collaboration with Raiffeisen Bank International.
-- ► Forecasted patterns using advanced data science techniques.
-- ► Developed impactful PowerBI dashboards for business insights.
+- ► Developed and maintained one of the projects of the product regarding Reports & Analytics.
+- ► Implemented GraphQL APIs for data retrieval and integration with other microservices.
+- ► Visualized data using customizable dashboards within React ecosystem.
 """
     )
 
-    # --- JOB 3
-    st.write("\n")
-    st.write("🚧", "**AI Instructor | OSCE, Prishtina**")
-    st.write("05/2023 (Fixed-term)")
-    st.write(
-        """
-- ► Delivered training on large language models (LLMs) and generative AI.
-- ► Equipped participants with tools to integrate AI in public relations strategies.
-"""
-    )
-
-    # --- JOB 4
-    st.write("\n")
-    st.write("🚧", "**Coding Instructor | BIT Academy, Prishtina**")
-    st.write("05/2022 - 05/2023")
-    st.write(
-        """
-- ► Taught Python, SQL, and Django with applications in data science.
-- ► Guided students in machine learning and data visualization projects.
-- ► Conducted backend development workshops and GUI programming with Tkinter.
-"""
-    )
-
-    # --- JOB 5
-    st.write("\n")
-    st.write("🚧", "**Teaching Assistant | London School of Economics / Kolegji Riinvest, Prishtina**")
-    st.write("10/2022 - 06/2023")
-    st.write(
-        """
-- ► Assisted in teaching Machine Learning and Business Analytics.
-- ► Supported students in building machine learning models and data strategies.
-"""
-    )
-
-    # --- JOB 6
-    st.write("\n")
-    st.write("🚧", "**Data Analyst | Finca Kosovo, Prishtina**")
-    st.write("06/2021 - 10/2021")
-    st.write(
-        """
-- ► Developed and implemented machine learning models for scoring.
-- ► Automated daily reports and created data visualizations for stakeholders.
-"""
-    )
-
-    # --- JOB 7
-    st.write("\n")
-    st.write("🚧", "**Math and IT Teacher | International School of Prishtina, Prishtina**")
-    st.write("09/2015 - 05/2021")
-    st.write(
-        """
-- ► Taught Mathematics, IT, and introductory machine learning.
-- ► Served as Vice Principal, showcasing leadership in curriculum development.
-- ► Instructed robotics and coding with Python and Scratch.
-"""
-    )
 
 elif page == "About":
     st.title("About Me")
     st.write("""
-    I am a data scientist with a strong passion for leveraging insights 
-    from spatial-sensor data to drive meaningful, data-driven decisions. 
-    With extensive experience in Python (FastAPI, Pandas, Numpy), SQL, DBT, and Airflow, 
+    I am a software developer with a strong passion for data science and machine learning,
+    from engineering part of creating APIs, data pipelines till interpreting data including feature engineering.(ML) 
+    with extensive experience in Javascript (Typescript, Next), GraphQL, Python (FastAPI, Pandas, Numpy), SQL.
     I excel at developing algorithms, building ML pipelines, and crafting robust data solutions. 
 
-    Over the years, I've collaborated with diverse teams, including 
-    financial institutions and educational organizations, 
-    honing my ability to communicate insights effectively. 
-    Beyond my professional pursuits, I enjoy instructing students 
-    and professionals on AI-related topics, enabling them to harness 
-    the transformative power of machine learning and analytics.
+    Beside the software development, I am very passionate to fully transition into the data science field.
+    I am eager to contribute to the field and explore new opportunities.
+    I am always open to learning and exploring new technologies.
+    I am also a big fan of gaming especially FPS, MOBA games.
     """)
 
     # Show LinkedIn and Email only on the About page
