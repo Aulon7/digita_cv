@@ -148,8 +148,8 @@ def projects_page():
         st.write("""
         End-to-end data pipeline for NYC Yellow Taxi 2024 (official data) data using Spark, GCP, dbt, Airflow and PowerBI.
         """)
-        st.image("assets/project_assets/gcp/gcp-pipeline.png", use_container_width=True)
         st.markdown("#### 🏗️ Project Architecture & Summary")
+        st.image("assets/project_assets/gcp/gcp-pipeline.png", use_container_width=True)
         st.write("""
         - **Orchestration & Ingestion (E & L):** **Apache Airflow** manages scheduled orchestration for **GCP Dataproc (Spark)** jobs. Spark extracts raw files from **Cloud Storage**, processes them, and writes partitioned Parquet files directly into **BigQuery**.
         - **Transformation & Modeling (T):** **dbt** executes transformation logic inside BigQuery, running quality tests and modeling staging layers into clean, production-ready Star Schema Data Marts.
