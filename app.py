@@ -12,7 +12,7 @@ Data Enthusiast.
 LINKEDIN_URL = "https://www.linkedin.com/in/aulonmorina/"
 EMAIL = "aulonmorina@gmail.com"
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="wide")
 
 # Directly reference files in the assets folder (ensure it exists)
 resume_file = "assets/Aulon_Morina_CV_2026-02.pdf"
@@ -71,7 +71,7 @@ def home_page():
     # --- WORK HISTORY ---
     st.write("\n")
     st.subheader("Work History")
-    st.write("---")
+    st.divider()
 
     st.write("🚧", "**Freelance | Prishtina**")
     st.write("09/2023 - 12/2024")
@@ -116,12 +116,86 @@ def about_page():
 def projects_page():
     st.title("Projects")
 
+    # --- PROJECT ONE ---
+    with st.container(border=True, width=1000, gap="small"):
+        st.header("E-Commerce Analytics (Azure)")
+        st.write("""
+        A modern data pipeline for e-commerce analytics using Azure Databricks, Delta Lake, and Power BI.
+        """)
+        st.markdown("#### 🏗️ Project Architecture & Summary")
+        st.image("assets/project_assets/azure/azure_databricks.png", use_container_width=True)
+        st.write("""
+        - **Medallion Architecture:** Raw streaming from ADLS Gen2 via Auto Loader **(Bronze)**, transformed and deduplicated via MERGE **(Silver)**, and structured into an analytical star schema **(Gold)**.
+        - **Key Features:** End-to-end data lineage, explicit schema enforcement, and an optimized hybrid framework of incremental and batch processing.
+        """)
 
+        st.markdown("#### 📊 Data modeling and visualization")
+        st.write("""
+        - **Star Schema Model:** High-performance analytical design featuring granular transaction fact (`Fact_Order_Items`) and dimensions tables (`Products`, `Customers`, `Date`).
+        - **BI Visualization:** Clean, Power BI-ready tables optimized to reduce join depth, ensuring lightning-fast dashboard queries and seamless reporting.
+        """)
+        st.markdown("##### Data Modeling")
+        st.image("assets/project_assets/azure/data-model.png", use_container_width=True)
+        st.markdown("##### Power BI")
+        st.image("assets/project_assets/azure/overview-page.png", use_container_width=True)
+        st.image("assets/project_assets/azure/time-based-page.png", use_container_width=True)
+
+    st.divider()
+
+    # --- PROJECT TWO ---
+    with st.container(border=True, width=1000, gap="small"):
+        st.header("NYC Taxi ETL (GCP)")
+        st.write("""
+        End-to-end data pipeline for NYC Yellow Taxi 2024 (official data) data using Spark, GCP, dbt, Airflow and PowerBI.
+        """)
+        st.image("assets/project_assets/gcp/gcp-pipeline.png", use_container_width=True)
+        st.markdown("#### 🏗️ Project Architecture & Summary")
+        st.write("""
+        - **Orchestration & Ingestion (E & L):** **Apache Airflow** manages scheduled orchestration for **GCP Dataproc (Spark)** jobs. Spark extracts raw files from **Cloud Storage**, processes them, and writes partitioned Parquet files directly into **BigQuery**.
+        - **Transformation & Modeling (T):** **dbt** executes transformation logic inside BigQuery, running quality tests and modeling staging layers into clean, production-ready Star Schema Data Marts.
+        - **Visualization & Deployment:** **Power BI** connects directly to BigQuery for real-time querying, while the entire local environment is containerized via **Docker Compose**.
+        """)
+
+        st.markdown("#### 📊 Data modeling and visualization")
+        st.write("""
+        - **Star Schema Model:** Built optimized analytical layers consisting of granular fact tables paired with descriptive dimension tables, designed to drastically reduce join depth.
+        - **BI Visualization:** Connected Power BI to the modeled BigQuery gold tables, enabling responsive semantic performance, direct data drill-downs, and clean dashboard layout visualization.
+        """)
+        st.markdown("##### Data Modeling")
+        st.image("assets/project_assets/gcp/data-model.png", use_container_width=True)
+        st.markdown("##### Power BI")
+        st.image("assets/project_assets/gcp/executive-summary.png", use_container_width=True)
+        st.image("assets/project_assets/gcp/financial-insights.png", use_container_width=True)
+
+    st.divider()
+
+      # --- PROJECT THREE ---
+    with st.container(border=True, width=1000, gap="small"):
+        st.header("- CarePlus Data Pipeline (AWS)")
+        st.write("""
+        This project moves support logs and support tickets through ingestion, transformation, and analytics on AWS.
+        """)
+        st.markdown("#### 🏗️ Project Architecture & Summary")
+        st.image("assets/project_assets/aws/aws-pipeline.png", use_container_width=True)
+        st.write("""
+        - **Data Ingestion (E & L):** Automated multi-source ingestion handling transactional data and streaming application logs, pushing raw datasets directly into dedicated **Amazon S3** landing zones.
+        - **Serverless Transformation (T):** Orchestrates decoupled processing pipelines using an **AWS Lambda** function to parse and convert raw logs into optimized Parquet formats, paired with a Lambda trigger that initiates an **AWS Glue ETL** job for ticket cleaning.
+        - **Pipeline Infrastructure:** Centrally controlled configurations utilizing environment secrets, ensuring secure connectivity for data extraction from an external **MySQL** database.
+        """)
+        st.markdown("#### 📊 Data modeling and visualization")
+        st.write("""
+        - **Processed Storage Layer:** Transformed datasets are partitioned and stored in Amazon S3 (`processed-data/`), optimized for high-performance schema discovery and low-cost analytical queries.
+        - **BI Visualization:** Standardized data outputs are engineered to integrate seamlessly into QuickSight for visualizations over consolidated support logs and tickets.
+        """)
+        st.markdown("##### QuickSight")
+        st.image("assets/project_assets/aws/support-logs-quicksight.png", use_container_width=True)
+        st.image("assets/project_assets/aws/support-tickets-quicksight.png", use_container_width=True)
 
 # --- ROUTING & NAVIGATION ---
 pg = st.navigation([
     st.Page(home_page, title="Home", icon=":material/home:", default=True),
-    st.Page(about_page, title="About", icon=":material/person:")
+    st.Page(about_page, title="About", icon=":material/person:"),
+    st.Page(projects_page, title="Projects", icon=":material/work:")
 ])
 
 # Render pages
