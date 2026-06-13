@@ -18,29 +18,34 @@ st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 resume_file = "assets/Aulon_Morina_CV_2026-02.pdf"
 profile_pic_file = "assets/aulon-profile-pic.png"
 
-with open(resume_file, "rb") as pdf_file:
-    PDFbyte = pdf_file.read()
+try:
+    with open(resume_file, "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+    profile_pic = Image.open(profile_pic_file)
 
-profile_pic = Image.open(profile_pic_file)
+except FileNotFoundError:
+    PDFbyte = b""
+    profile_pic = None
 
-# Sidebar navigation
-page = st.sidebar.radio("Navigate", ["Home", "About"])
 
-if page == "Home":
+# --- PAGE 1: HOME ---
+def home_page():
     # --- HERO SECTION ---
     col1, col2 = st.columns([1, 2], gap="small")
     with col1:
-        st.image(profile_pic, width=230)
+        if profile_pic:
+            st.image(profile_pic, width=230)
 
     with col2:
         st.title(NAME)
         st.write(DESCRIPTION)
-        st.download_button(
-            label="📄 Download Resume",
-            data=PDFbyte,
-            file_name="Aulon-Morina_CV.pdf",
-            mime="application/octet-stream",
-        )
+        if PDFbyte:           
+            st.download_button(
+                label="📄 Download Resume",
+                data=PDFbyte,
+                file_name="Aulon-Morina_CV.pdf",
+                mime="application/octet-stream",
+            )
 
     # --- EXPERIENCE & QUALIFICATIONS ---
     st.write("\n")
@@ -88,8 +93,8 @@ if page == "Home":
 """
     )
 
-
-elif page == "About":
+# --- PAGE 2: ABOUT ---
+def about_page():
     st.title("About Me")
     st.write("""
     I am a software developer with a strong passion for data science and machine learning,
@@ -106,3 +111,18 @@ elif page == "About":
     # Show LinkedIn and Email only on the About page
     st.write("📫", EMAIL)
     st.write(f"Feel free to connect with me on [LinkedIn]({LINKEDIN_URL}).")
+
+# --- PAGE 3: PROJECTS ---
+def projects_page():
+    st.title("Projects")
+
+
+
+# --- ROUTING & NAVIGATION ---
+pg = st.navigation([
+    st.Page(home_page, title="Home", icon=":material/home:", default=True),
+    st.Page(about_page, title="About", icon=":material/person:")
+])
+
+# Render pages
+pg.run()
