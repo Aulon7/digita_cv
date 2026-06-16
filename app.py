@@ -191,12 +191,22 @@ def projects_page():
         st.image("assets/project_assets/aws/support-logs-quicksight.png", use_container_width=True)
         st.image("assets/project_assets/aws/support-tickets-quicksight.png", use_container_width=True)
 
-# --- ROUTING & NAVIGATION ---
-pg = st.navigation([
-    st.Page(home_page, title="Home", icon=":material/home:", default=True),
-    st.Page(about_page, title="About", icon=":material/person:"),
-    st.Page(projects_page, title="Projects", icon=":material/work:")
-])
+def lectures_12_page():
+    st.title("Intro to SQL, Database, Data Modeling, Types of Data Repositories")
+    with st.container(border=True, width="content", gap="small"):
+        st.write("Hello World")
 
-# Render pages
+
+# --- ROUTING & NAVIGATION ---
+pg = st.navigation({
+    "": [
+        st.Page(home_page, title="🏡 Home", default=True),
+        st.Page(about_page, title="🙎‍♂️ About"),
+        st.Page(projects_page, title="💼 Projects"),
+    ],
+    "📚 Lessons": [
+        st.Page(lectures_12_page, title="📝 Lecture 12"),
+    ]
+})
+
 pg.run()
